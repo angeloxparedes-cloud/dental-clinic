@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2026 at 01:30 PM
+-- Generation Time: Jul 28, 2026 at 06:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -345,7 +345,11 @@ CREATE TABLE `appointments` (
 
 INSERT INTO `appointments` (`id`, `patient_id`, `dentist_id`, `service_id`, `appointment_date`, `appointment_time`, `status`, `notes`, `reschedule_reason`, `rescheduled_at`, `original_date`, `original_time`, `created_at`) VALUES
 (9, 10, 1, 3, '2026-04-21', '08:00:00', 'completed', 'Thank you.', NULL, NULL, NULL, NULL, '2026-04-20 17:03:51'),
-(10, 10, 4, 3, '2026-04-24', '14:30:00', 'confirmed', 'hihihi', 'i need to pee', '2026-04-20 17:28:27', '2026-04-22', '14:30:00', '2026-04-20 17:27:52');
+(10, 10, 4, 3, '2026-04-24', '14:30:00', 'completed', 'hihihi', 'i need to pee', '2026-04-20 17:28:27', '2026-04-22', '14:30:00', '2026-04-20 17:27:52'),
+(14, 10, 1, 3, '2026-07-17', '14:00:00', 'completed', ':P', NULL, NULL, NULL, NULL, '2026-07-10 15:14:37'),
+(15, 14, 5, 1, '2026-07-13', '15:00:00', 'completed', 'hihi', NULL, NULL, NULL, NULL, '2026-07-10 15:32:58'),
+(16, 10, 1, 5, '2026-07-13', '13:00:00', 'confirmed', 'adadas', NULL, NULL, NULL, NULL, '2026-07-10 16:20:46'),
+(17, 14, 4, 1, '2026-07-22', '15:00:00', 'confirmed', 'asdasdas', NULL, NULL, NULL, NULL, '2026-07-10 16:23:10');
 
 -- --------------------------------------------------------
 
@@ -372,7 +376,8 @@ INSERT INTO `dentists` (`id`, `first_name`, `last_name`, `specialization`, `emai
 (1, 'Marie Edsyl', 'Hormachuelos', 'General Dentistry', 'marieedsyla@dentalclinic.com', '09171234567', 1, '2026-04-16 18:37:01'),
 (2, 'Julius', 'Credo', 'Orthodontics', 'julius@dentalclinic.com', '09181234567', 0, '2026-04-16 18:37:01'),
 (4, 'Noby Mae', 'Halina', 'Pediatric Dentistry', 'nobymae@gmaiul.com', '09456923956', 1, '2026-04-17 10:45:15'),
-(5, 'Melvy', 'Jongco', 'Endodontics', 'jongco@gmail.com', '09456975934', 1, '2026-04-17 10:45:56');
+(5, 'Melvy', 'Jongco', 'Endodontics', 'jongco@gmail.com', '09456975934', 1, '2026-04-17 10:45:56'),
+(9, 'Jasmine', 'Buyas', 'Oral Surgery', 'jasmine@gmail.com', '09456758632', 1, '2026-04-25 16:44:59');
 
 -- --------------------------------------------------------
 
@@ -443,13 +448,13 @@ CREATE TABLE `services` (
 
 INSERT INTO `services` (`id`, `name`, `description`, `duration_minutes`, `price`, `is_active`) VALUES
 (1, 'General Checkup', 'Routine dental examination and cleaning', 30, 500.00, 1),
-(2, 'Tooth Extraction', 'Simple or surgical tooth removal', 45, 1500.00, 1),
+(2, 'Tooth Extraction', 'Simple or surgical tooth removal', 45, 1250.00, 1),
 (3, 'Dental Filling', 'Composite or amalgam filling', 60, 2000.00, 1),
 (4, 'Teeth Whitening', 'Professional teeth whitening treatment', 90, 5000.00, 1),
-(5, 'Braces Consultation', 'Initial consultation for orthodontic treatment', 45, 800.00, 1),
+(5, 'Braces ', 'Initial straighten teeth for orthodontic treatment', 45, 45000.00, 1),
 (6, 'Root Canal', 'Endodontic root canal treatment', 90, 8000.00, 1),
 (7, 'Dental Crown', 'Porcelain or metal crown placement', 60, 6000.00, 1),
-(8, 'Oral Prophylaxis', 'Professional teeth cleaning and polishing', 45, 1200.00, 1);
+(8, 'Oral Prophylaxis', 'Professional teeth cleaning and polishing', 45, 700.00, 1);
 
 -- --------------------------------------------------------
 
@@ -477,8 +482,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `role`, `is_verified`, `status`, `created_at`, `avatar`, `temp_password`) VALUES
-(1, 'Admin', 'User', 'admin@auzadentalclinic.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'admin', 1, 'approved', '2026-04-16 18:37:01', 'avatar_1_1776498414.png', NULL),
-(10, 'Angel Frederick', 'Paredes', 'angelox@gmail.com', '$2y$10$II/VXq5BE5MD2R8IVUaqauCQPNhyViz7SP1wg6FVfhc7tK6jrfv2q', '09123985964', 'patient', 1, 'approved', '2026-04-20 17:03:04', 'avatar_10_1776675990.jpg', NULL);
+(1, 'Admin', 'User', 'admin@auzadentalclinic.com', '$2y$10$xNfODWr17oI779D67s0aL.TQbCdUd3VF.pGWuQnn38FagjFyEJQv.', '', 'admin', 1, 'approved', '2026-04-16 18:37:01', 'avatar_1_1776498414.png', NULL),
+(10, 'Angel Frederick', 'Paredes', 'angeloxparedes@gmail.com', '$2y$10$II/VXq5BE5MD2R8IVUaqauCQPNhyViz7SP1wg6FVfhc7tK6jrfv2q', '09123985964', 'patient', 1, 'approved', '2026-04-20 17:03:04', 'avatar_10_1776685739.jpg', NULL),
+(14, 'Sheyra', 'Gamer', 'ap47090@gmail.com', '$2y$10$L013JKgxwFK/Bv04bacXvOuXE9gV.9FAXbEO.jGsXxyY/DgOf0JvO', '09123756983', 'patient', 1, 'approved', '2026-07-10 15:30:39', 'avatar_14_1783668750.jpg', NULL);
 
 --
 -- Indexes for dumped tables
@@ -535,25 +541,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `dentists`
 --
 ALTER TABLE `dentists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `password_resets`
 --
 ALTER TABLE `password_resets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -565,7 +571,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
