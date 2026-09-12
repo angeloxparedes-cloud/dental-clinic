@@ -8,7 +8,7 @@ define('DB_PASS', '');
 define('DB_NAME', 'dental_clinic');
 
 define('APP_NAME', 'Auza Dental Clinic');
-define('APP_URL', 'http://localhost/dental-clinic');
+define('APP_URL', 'https://auzadentalclinic.online');
 
 // Session start
 if (session_status() === PHP_SESSION_NONE) {
